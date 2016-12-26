@@ -16,12 +16,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MonitorItem {
+    public static final int ONE_MINUTE = 60000;
+    public static final int ONE_HOURE = 60;
+    public static final int MONITOR_PERIOD = 5;
     private String className;
     private String methodName;
     private List<MonitorDataPerMinute> lastMonitorData;
 
     public void addNewData(long useTime, long nowTime) {
-        long minute=(nowTime/60000 % 60)/5;
+        long minute=(nowTime/ ONE_MINUTE % ONE_HOURE)/ MONITOR_PERIOD;
         MonitorDataPerMinute dataPerMinute=createIfNotExist(minute);
         dataPerMinute.putNewData(useTime);
     }
@@ -46,7 +49,7 @@ public class MonitorItem {
                 .min(Long.MAX_VALUE)
                 .build();
         lastMonitorData.add(dataPerMinute);
-        if(lastMonitorData.size()>60){
+        if(lastMonitorData.size()>(ONE_HOURE/MONITOR_PERIOD)){
             lastMonitorData.remove(0);
         }
         return dataPerMinute;
