@@ -1,11 +1,11 @@
-package io.github.bobdeng.restmonitor.bean.impl;
+package io.github.bobdeng.appmonitor.bean.impl;
 
-import io.github.bobdeng.restmonitor.bean.Monitor;
-import io.github.bobdeng.restmonitor.dto.MonitorBase;
-import io.github.bobdeng.restmonitor.dto.MonitorItem;
-import io.github.bobdeng.restmonitor.bean.TimeUtils;
-import io.github.bobdeng.restmonitor.utils.NolockObjectBuffer;
-import io.github.bobdeng.restmonitor.utils.ObjectBuffer;
+import io.github.bobdeng.appmonitor.bean.Monitor;
+import io.github.bobdeng.appmonitor.dto.MonitorBase;
+import io.github.bobdeng.appmonitor.dto.MonitorItem;
+import io.github.bobdeng.appmonitor.bean.TimeUtils;
+import io.github.bobdeng.appmonitor.utils.NolockObjectBuffer;
+import io.github.bobdeng.appmonitor.utils.ObjectBuffer;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

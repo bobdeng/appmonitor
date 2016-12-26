@@ -1,4 +1,4 @@
-package io.github.bobdeng.restmonitor.bean;
+package io.github.bobdeng.appmonitor.bean;
 
 /**
  * Created by zhiguodeng on 2016/12/26.

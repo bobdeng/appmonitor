@@ -1,6 +1,6 @@
-package io.github.bobdeng.restmonitor.bean.impl;
+package io.github.bobdeng.appmonitor.bean.impl;
 
-import io.github.bobdeng.restmonitor.bean.TimeUtils;
+import io.github.bobdeng.appmonitor.bean.TimeUtils;
 import org.springframework.stereotype.Component;
 
 import java.time.Clock;

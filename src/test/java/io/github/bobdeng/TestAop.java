@@ -1,6 +1,6 @@
 package io.github.bobdeng;
 
-import io.github.bobdeng.restmonitor.bean.Monitor;
+import io.github.bobdeng.appmonitor.bean.Monitor;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

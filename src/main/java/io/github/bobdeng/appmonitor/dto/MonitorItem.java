@@ -1,4 +1,4 @@
-package io.github.bobdeng.restmonitor.dto;
+package io.github.bobdeng.appmonitor.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +21,7 @@ public class MonitorItem {
     private List<MonitorDataPerMinute> lastMonitorData;
 
     public void addNewData(long useTime, long nowTime) {
-        long minute=nowTime/60000 % 60;
+        long minute=(nowTime/60000 % 60)/5;
         MonitorDataPerMinute dataPerMinute=createIfNotExist(minute);
         dataPerMinute.putNewData(useTime);
     }

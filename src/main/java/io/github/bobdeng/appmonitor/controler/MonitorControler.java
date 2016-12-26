@@ -1,7 +1,7 @@
-package io.github.bobdeng.restmonitor.controler;
+package io.github.bobdeng.appmonitor.controler;
 
-import io.github.bobdeng.restmonitor.bean.Monitor;
-import io.github.bobdeng.restmonitor.dto.MonitorItem;
+import io.github.bobdeng.appmonitor.bean.Monitor;
+import io.github.bobdeng.appmonitor.dto.MonitorItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

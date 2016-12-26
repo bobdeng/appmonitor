@@ -1,4 +1,4 @@
-package io.github.bobdeng.restmonitor.dto;
+package io.github.bobdeng.appmonitor.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

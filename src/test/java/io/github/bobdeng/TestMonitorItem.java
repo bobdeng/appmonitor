@@ -1,6 +1,6 @@
 package io.github.bobdeng;
 
-import io.github.bobdeng.restmonitor.dto.MonitorItem;
+import io.github.bobdeng.appmonitor.dto.MonitorItem;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -30,10 +30,15 @@ public class TestMonitorItem {
         assertEquals(item.getLastMonitorData().get(0).getTotal(),1200);
         assertEquals(item.getLastMonitorData().get(0).getAverage(),300);
         assertEquals(item.getLastMonitorData().get(0).getMinute(),0l);
-        cal.set(Calendar.MINUTE,1);
+        cal.set(Calendar.MINUTE,4);
+        item.addNewData(100,cal.getTimeInMillis());
+        item.addNewData(100,cal.getTimeInMillis());
+        assertEquals(item.getLastMonitorData().size(),1);
+        assertEquals(item.getLastMonitorData().get(0).getMinute(),0l);
+        cal.set(Calendar.MINUTE,5);
+        item.addNewData(100,cal.getTimeInMillis());
         item.addNewData(100,cal.getTimeInMillis());
         assertEquals(item.getLastMonitorData().size(),2);
-        assertEquals(item.getLastMonitorData().get(1).getMinute(),1l);
     }
     @Test
     public void testNewMonitorDataNoMore60(){

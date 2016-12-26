@@ -1,9 +1,9 @@
 package io.github.bobdeng;
 
-import io.github.bobdeng.restmonitor.bean.Monitor;
-import io.github.bobdeng.restmonitor.bean.impl.MonitorImpl;
-import io.github.bobdeng.restmonitor.dto.MonitorItem;
-import io.github.bobdeng.restmonitor.bean.TimeUtils;
+import io.github.bobdeng.appmonitor.bean.Monitor;
+import io.github.bobdeng.appmonitor.bean.impl.MonitorImpl;
+import io.github.bobdeng.appmonitor.dto.MonitorItem;
+import io.github.bobdeng.appmonitor.bean.TimeUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;

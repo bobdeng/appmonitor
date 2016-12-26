@@ -1,6 +1,6 @@
-package io.github.bobdeng.restmonitor.bean;
+package io.github.bobdeng.appmonitor.bean;
 
-import io.github.bobdeng.restmonitor.dto.MonitorItem;
+import io.github.bobdeng.appmonitor.dto.MonitorItem;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 import java.util.List;

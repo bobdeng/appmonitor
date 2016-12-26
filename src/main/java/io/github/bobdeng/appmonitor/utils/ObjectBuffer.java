@@ -1,4 +1,4 @@
-package io.github.bobdeng.restmonitor.utils;
+package io.github.bobdeng.appmonitor.utils;
 
 import java.util.List;
 import java.util.stream.Stream;
