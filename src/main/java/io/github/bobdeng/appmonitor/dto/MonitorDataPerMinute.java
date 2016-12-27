@@ -1,5 +1,6 @@
 package io.github.bobdeng.appmonitor.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,11 +14,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MonitorDataPerMinute {
+    @JsonIgnore
     private long minute;
     private long max;
     private long min;
+    @JsonIgnore
     private long total;
     private int times;
+    private String time;
 
     public void putNewData(long useTime) {
         times++;
