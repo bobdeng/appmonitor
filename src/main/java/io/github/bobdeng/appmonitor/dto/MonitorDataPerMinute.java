@@ -1,26 +1,27 @@
 package io.github.bobdeng.appmonitor.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 /**
  * Created by zhiguodeng on 2016/12/26.
  */
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class MonitorDataPerMinute {
-    @JsonIgnore
-    private long minute;
+    @Getter
+    @Setter
     private long max;
+    @Getter
+    @Setter
     private long min;
-    @JsonIgnore
     private long total;
+    @Getter
+    @Setter
     private int times;
+    @Getter
+    @Setter
     private String time;
 
     public void putNewData(long useTime) {

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.print.DocFlavor;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,41 +20,39 @@ import java.util.regex.Pattern;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MonitorItem {
-    public static final int ONE_MINUTE = 60000;
+    public static final int FIVE_MINUTE = 5*60000;
     public static final int ONE_HOURE = 60;
-    public static final int MONITOR_PERIOD = 5;
     private String className;
     private String methodName;
     private List<MonitorDataPerMinute> lastMonitorData;
     private static final SimpleDateFormat dateFormat=new SimpleDateFormat("YYYY-MM-dd HH:mm");
     public void addNewData(long useTime, long nowTime) {
-        long minute=(nowTime/ ONE_MINUTE % ONE_HOURE)/ MONITOR_PERIOD;
-        MonitorDataPerMinute dataPerMinute=createIfNotExist(minute,nowTime);
+        String timeWith5Minute= dateFormat.format(new Date(nowTime/ FIVE_MINUTE * FIVE_MINUTE));
+        MonitorDataPerMinute dataPerMinute=createIfNotExist(timeWith5Minute);
         dataPerMinute.putNewData(useTime);
     }
-    private MonitorDataPerMinute createIfNotExist(long minute,long nowTime){
+    private MonitorDataPerMinute createIfNotExist(String nowTime){
         if(lastMonitorData==null) lastMonitorData=new ArrayList<>();
         if(lastMonitorData.size()==0){
-            return newMonitorDataPerMinute(minute,nowTime);
+            return newMonitorDataPerMinute(nowTime);
         }
         else{
             MonitorDataPerMinute dataPerMinute=lastMonitorData.get(lastMonitorData.size()-1);
-            if(dataPerMinute.getMinute() == minute){
+            if(dataPerMinute.getTime().equals(nowTime)){
                 return dataPerMinute;
             }else{
-                return newMonitorDataPerMinute(minute,nowTime);
+                return newMonitorDataPerMinute(nowTime);
             }
         }
     }
 
-    private MonitorDataPerMinute newMonitorDataPerMinute(long minute,long nowTime) {
+    private MonitorDataPerMinute newMonitorDataPerMinute(String nowTime) {
         MonitorDataPerMinute dataPerMinute=MonitorDataPerMinute.builder()
-                .minute(minute)
                 .min(Long.MAX_VALUE)
-                .time(dateFormat.format(new Date(nowTime)))
+                .time(nowTime)
                 .build();
         lastMonitorData.add(dataPerMinute);
-        if(lastMonitorData.size()>(ONE_HOURE/MONITOR_PERIOD)){
+        if(lastMonitorData.size()>(ONE_HOURE/5)){
             lastMonitorData.remove(0);
         }
         return dataPerMinute;

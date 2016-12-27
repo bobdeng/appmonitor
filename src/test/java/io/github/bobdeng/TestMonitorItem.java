@@ -16,6 +16,9 @@ public class TestMonitorItem {
     @Test
     public void testNewMonitorData(){
         Calendar cal=Calendar.getInstance();
+        cal.set(Calendar.YEAR,2000);
+        cal.set(Calendar.MONTH,0);
+        cal.set(Calendar.DAY_OF_MONTH,1);
         cal.set(Calendar.HOUR,10);
         cal.set(Calendar.MINUTE,0);
         MonitorItem item=new MonitorItem();
@@ -27,18 +30,17 @@ public class TestMonitorItem {
         assertEquals(item.getLastMonitorData().get(0).getMax(),500);
         assertEquals(item.getLastMonitorData().get(0).getMin(),100);
         assertEquals(item.getLastMonitorData().get(0).getTimes(),4);
-        assertEquals(item.getLastMonitorData().get(0).getTotal(),1200);
         assertEquals(item.getLastMonitorData().get(0).getAverage(),300);
-        assertEquals(item.getLastMonitorData().get(0).getMinute(),0l);
+        assertEquals(item.getLastMonitorData().get(0).getTime(),"2000-01-01 10:00");
         cal.set(Calendar.MINUTE,4);
         item.addNewData(100,cal.getTimeInMillis());
         item.addNewData(100,cal.getTimeInMillis());
         assertEquals(item.getLastMonitorData().size(),1);
-        assertEquals(item.getLastMonitorData().get(0).getMinute(),0l);
         cal.set(Calendar.MINUTE,5);
         item.addNewData(100,cal.getTimeInMillis());
         item.addNewData(100,cal.getTimeInMillis());
         assertEquals(item.getLastMonitorData().size(),2);
+        assertEquals(item.getLastMonitorData().get(1).getTime(),"2000-01-01 10:05");
     }
     @Test
     public void testNewMonitorDataNoMore60(){

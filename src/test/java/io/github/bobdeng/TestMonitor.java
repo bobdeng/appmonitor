@@ -44,6 +44,9 @@ public class TestMonitor {
     @Test
     public void testNewMission(){
         Calendar cal=Calendar.getInstance();
+        cal.set(Calendar.YEAR,2000);
+        cal.set(Calendar.MONTH,0);
+        cal.set(Calendar.DAY_OF_MONTH,1);
         cal.set(Calendar.HOUR,10);
         cal.set(Calendar.MINUTE,0);
         TimeUtils timeUtils=mock(TimeUtils.class);
