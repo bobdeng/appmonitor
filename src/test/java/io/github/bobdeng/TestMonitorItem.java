@@ -19,7 +19,7 @@ public class TestMonitorItem {
         cal.set(Calendar.YEAR,2000);
         cal.set(Calendar.MONTH,0);
         cal.set(Calendar.DAY_OF_MONTH,1);
-        cal.set(Calendar.HOUR,10);
+        cal.set(Calendar.HOUR_OF_DAY,10);
         cal.set(Calendar.MINUTE,0);
         MonitorItem item=new MonitorItem();
         item.addNewData(100,cal.getTimeInMillis());
